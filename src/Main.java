@@ -62,15 +62,12 @@ public class Main {
             }
             System.out.print("\n" + "Количество итераций: " + result.getIterationCounter());
             System.out.print("\n" + "Вектор погрешностей: " + "\n");
-            ArrayList<double[]> errorList = result.getErrorList();
+            ArrayList<Double> errorList = result.getErrorList();
             for (int i = 0; i < errorList.size(); i++) {
-                for (int j = 0; j < errorList.get(i).length; j++){
-                    System.out.print(errorList.get(i)[j] + " ");
-                }
-                System.out.print("\n");
+                System.out.print(errorList.get(i) + " ");
             }
         } catch (DiagonalDominatingException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
 
 
@@ -82,6 +79,7 @@ public class Main {
 
 
     private static void fix (int size) throws DiagonalDominatingException {
+        boolean hadtofix = false;
         for (int i = 0; i < size; i++){
             double a[] = matrix[i];
 
@@ -90,9 +88,10 @@ public class Main {
                 if (j != i) sum += Math.abs(a[j]);
             }
             if (!(sum <= a[i]) && i != size-1) {
+                hadtofix = true;
                 double[] massMax = massMax(a);
                 int table = (int) Math.round(massMax[1]);
-                if (table >= i)
+                if (table >= i && massSum(a)-massMax[0] < massMax[0])
                     for (int j = 0; j < size; j++) {
                         double buff;
                         buff = matrix[j][i];
@@ -100,10 +99,26 @@ public class Main {
                         matrix[j][table] = buff;
                     }
                 else {
-                    throw new DiagonalDominatingException("Отсутствие диагонального преобладания в строке: " + i+1);
+                    throw new DiagonalDominatingException("Невозможно добиться диагонального преобладания путем перестановок в строке: " + (i+1) + "\n" +
+                            "Конец программы.");
                 }
             }
         }
+        if (hadtofix) {
+            System.err.println("В изначальной матрице отсутствует диагональное преобразование \n" +
+                    "Произведены преобразования. Текущий вид матрицы: ");
+            for (int i = 0; i < size; i++){
+                for (int j = 0; j < size+1; j++) System.err.print(matrix[i][j] + " | ");
+                System.err.println();
+            }
+
+        }
+    }
+
+    private static double massSum(double[] mass){
+        double summ = 0;
+        for (int counter = 0; counter < mass.length; counter++) summ+=mass[counter];
+        return summ;
     }
 
     private static double[] massMax (double[] mass){

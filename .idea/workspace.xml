@@ -34,6 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -78,6 +79,10 @@
       <option name="presentableId" value="Default" />
       <updated>1613678064456</updated>
       <workItem from="1613678067769" duration="14593000" />
+      <workItem from="1614243915235" duration="7061000" />
+      <workItem from="1614890750869" duration="646000" />
+      <workItem from="1614900194698" duration="5162000" />
+      <workItem from="1614907447778" duration="7000" />
     </task>
     <servers />
   </component>
@@ -85,21 +90,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1613694157141">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1614907452346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613694157141" />
-    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1613694157141">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614907452346" />
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1614261191935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613694157141" />
-    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1613694157141">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614261191935" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1614261191934">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613694157141" />
-    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1613694157141">
+    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614261191934" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1614261191934">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613694157141" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614261191934" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1614261191934">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614261191934" />
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1614907448639">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614907448639" />
+    <state x="342" y="147" key="new project wizard" timestamp="1614894359392">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="147" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1614894359392" />
   </component>
 </project>

@@ -1,17 +1,16 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class SimpleIteration {
     private double[] previousVariableValues;
     private int iterationCounter = 0;
-    private ArrayList<double[]> errorList = new ArrayList<double[]>();
+    private ArrayList<Double> errorList = new ArrayList<Double>();
     public SimpleIteration (double eps, double[][] matrix, int size) {
         // Введем вектор значений неизвестных на предыдущей итерации,
         // размер которого равен числу строк в матрице, т.е. size,
         // причем согласно методу изначально заполняем его нулями
         previousVariableValues = new double[size];
         for (int i = 0; i < size; i++) {
-            previousVariableValues[i] = 0.0;
+            previousVariableValues[i] = matrix[i][size];
         }
         // Будем выполнять итерационный процесс до тех пор,
         // пока не будет достигнута необходимая точность
@@ -23,24 +22,19 @@ public class SimpleIteration {
             for (int i = 0; i < size; i++) {
                 // Инициализируем i-ую неизвестную значением
                 // свободного члена i-ой строки матрицы
-                currentVariableValues[i] = matrix[i][size];
+                currentVariableValues[i] = matrix[i][size] / matrix[i][i];
                 // Вычитаем сумму по всем отличным от i-ой неизвестным
                 for (int j = 0; j < size; j++) {
                     if (i != j) {
-                        currentVariableValues[i] -= matrix[i][j] * previousVariableValues[j];
+                        currentVariableValues[i] -= matrix[i][j] * previousVariableValues[j] / matrix[i][i];
                     }
                 }
-                // Делим на коэффициент при i-ой неизвестной
-                currentVariableValues[i] /= matrix[i][i];
             }
             // Посчитаем текущую погрешность относительно предыдущей итерации
             double error = 0.0;
-            double[] a = new double[size];
-            for (int i = 0; i < size; i++) {
-                error += Math.abs(currentVariableValues[i] - previousVariableValues[i]);
-                a[i] = error;
-            }
-            errorList.add(a);
+            //Критерий по абсолютным отклонениям
+            error = Math.abs(massMax(currentVariableValues) - massMax(previousVariableValues));
+            errorList.add(error);
             // Если необходимая точность достигнута, то завершаем процесс
             iterationCounter++;
             if (error < eps) {
@@ -53,6 +47,15 @@ public class SimpleIteration {
         }
     }
 
+    private static double massMax (double[] mass){
+        double max = mass[0];
+        for (int count = 1; count < mass.length-1; count++)
+            if (max < mass[count]) {
+                max = mass[count];
+            }
+        return max;
+    }
+
     public double[] getPreviousVariableValues (){
         return previousVariableValues;
     }
@@ -61,7 +64,7 @@ public class SimpleIteration {
         return  iterationCounter;
     }
 
-    public ArrayList<double[]> getErrorList (){
+    public ArrayList<Double> getErrorList (){
         return errorList;
     }
 }
